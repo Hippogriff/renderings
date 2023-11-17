@@ -43,7 +43,7 @@ async fn load_mesh() -> Vec<tobj::Model> {
     opts.method("GET");
     opts.mode(web_sys::RequestMode::Cors);
 
-    let url = "data/mesh_segmentation.obj";
+    let url = "/renderings/data/mesh_segmentation.obj";
     let request = web_sys::Request::new_with_str_and_init(url, &opts).unwrap();
 
     let window = web_sys::window().unwrap();
@@ -76,24 +76,24 @@ async fn load_textures() -> Vec<image::DynamicImage> {
 
     // let urls = vec!["/color.png", "/alpha.png"];
     let urls = vec![
-        "/data/diffuse.png",
-        "/data/alpha.png",
-        "/data/color_0.png",
-        "/data/color_1.png",
-        "/data/color_2.png",
-        "/data/color_3.png",
-        "/data/color_4.png",
-        "/data/color_5.png",
+        "/renderings/data/diffuse.png",
+        "/renderings/data/alpha.png",
+        "/renderings/data/color_0.png",
+        "/renderings/data/color_1.png",
+        "/renderings/data/color_2.png",
+        "/renderings/data/color_3.png",
+        "/renderings/data/color_4.png",
+        "/renderings/data/color_5.png",
         // "/color_6.png",
         // "/color_7.png",
         // "/color_8.png",
         // "/color_9.png",
-        "/data/lambda_axis_0.png",
-        "/data/lambda_axis_1.png",
-        "/data/lambda_axis_2.png",
-        "/data/lambda_axis_3.png",
-        "/data/lambda_axis_4.png",
-        "/data/lambda_axis_5.png",
+        "/renderings/data/lambda_axis_0.png",
+        "/renderings/data/lambda_axis_1.png",
+        "/renderings/data/lambda_axis_2.png",
+        "/renderings/data/lambda_axis_3.png",
+        "/renderings/data/lambda_axis_4.png",
+        "/renderings/data/lambda_axis_5.png",
         // "/lambda_axis_6.png",
         // "/lambda_axis_7.png",
         // "/lambda_axis_8.png",
@@ -1152,7 +1152,7 @@ impl scene::Scene for MobileNeRFScene {
             depth_stencil_attachment: None,
         });
 
-        let num_passes = 10;
+        let num_passes = 8;
         for i in 0..num_passes {
             let color_target_view = &self.front_rgba.view;
             {
